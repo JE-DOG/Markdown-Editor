@@ -1,7 +1,15 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
+    includeBuild("convention-plugins/base")
     repositories {
-        google()
+        google {
+            content { 
+              	includeGroupByRegex("com\\.android.*")
+              	includeGroupByRegex("com\\.google.*")
+              	includeGroupByRegex("androidx.*")
+              	includeGroupByRegex("android.*")
+            }
+        }
         gradlePluginPortal()
         mavenCentral()
     }
@@ -9,11 +17,20 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
-        google()
+        google {
+            content { 
+              	includeGroupByRegex("com\\.android.*")
+              	includeGroupByRegex("com\\.google.*")
+              	includeGroupByRegex("androidx.*")
+              	includeGroupByRegex("android.*")
+            }
+        }
         mavenCentral()
     }
 }
 
-rootProject.name = "Markdown_Editory"
-include(":androidApp")
-include(":shared")
+rootProject.name = "Markdown-Editor"
+
+//region includes
+include(":composeApp")
+//endregion
